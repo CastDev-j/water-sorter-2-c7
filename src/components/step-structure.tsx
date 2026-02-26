@@ -84,36 +84,38 @@ export function StepStructure({
         </Card>
       </div>
 
-      <Card className="bg-secondary-background p-6 w-full flex flex-row items-center justify-center overflow-x-auto">
-        {tubes.map((tube, i) => (
-          <div
-            key={`fill-${i}`}
-            className="flex flex-col items-center gap-1.5 animate-in fade-in zoom-in-95 duration-200"
-            style={{ animationDelay: `${i * 30}ms` }}
-          >
-            <Tube tube={tube} index={i} />
-          </div>
-        ))}
-
-        {Array.from({ length: emptyTubes }).map((_, i) => (
-          <div
-            key={`empty-${i}`}
-            className="flex flex-col items-center gap-1.5 animate-in fade-in zoom-in-95 duration-200"
-            style={{ animationDelay: `${(fillableTubes + i) * 30}ms` }}
-          >
-            <span className="text-[11px] font-medium text-muted-foreground">
-              {fillableTubes + i + 1}
-            </span>
-            <div className="relative flex w-14 flex-col-reverse gap-0.5 rounded-b-[10px] border-2 border-t-0 border-dashed border-border bg-secondary-background px-1 pb-1 pt-4 shadow-shadow">
-              {Array.from({ length: MAX_LEVELS }).map((_, si) => (
-                <div
-                  key={si}
-                  className="h-10 w-full rounded-[3px] border-2 border-dashed border-border bg-secondary-background/70"
-                />
-              ))}
+      <Card className="bg-secondary-background p-6 w-full overflow-x-auto">
+        <div className="flex w-max min-w-full flex-row items-center justify-start gap-3">
+          {tubes.map((tube, i) => (
+            <div
+              key={`fill-${i}`}
+              className="flex flex-col items-center gap-1.5 animate-in fade-in zoom-in-95 duration-200"
+              style={{ animationDelay: `${i * 30}ms` }}
+            >
+              <Tube tube={tube} index={i} />
             </div>
-          </div>
-        ))}
+          ))}
+
+          {Array.from({ length: emptyTubes }).map((_, i) => (
+            <div
+              key={`empty-${i}`}
+              className="flex flex-col items-center gap-1.5 animate-in fade-in zoom-in-95 duration-200"
+              style={{ animationDelay: `${(fillableTubes + i) * 30}ms` }}
+            >
+              <span className="text-[11px] font-medium text-muted-foreground">
+                {fillableTubes + i + 1}
+              </span>
+              <div className="relative flex w-14 flex-col-reverse gap-0.5 rounded-b-[10px] border-2 border-t-0 border-dashed border-border bg-secondary-background px-1 pb-1 pt-4 shadow-shadow">
+                {Array.from({ length: MAX_LEVELS }).map((_, si) => (
+                  <div
+                    key={si}
+                    className="h-10 w-full rounded-[3px] border-2 border-dashed border-border bg-secondary-background/70"
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </Card>
 
       <Button
