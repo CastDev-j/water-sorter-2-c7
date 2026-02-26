@@ -40,7 +40,7 @@ export function Tube({ tube, index, isSource, isTarget, onClick }: TubeProps) {
           isSource
             ? "bg-main/40 shadow-shadow -translate-y-1"
             : isTarget
-              ? "bg-chart-4/40 shadow-shadow"
+              ? "bg-main/40 shadow-shadow"
               : "bg-secondary-background shadow-shadow",
         )}
       >
